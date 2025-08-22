@@ -1,0 +1,184 @@
+@use "_variables.scss" as v;
+@use "_tools.scss" as t;
+
+.h {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    transition: top 0.45s ease-in;
+    z-index: 600;
+
+    @include t.flex-box();
+
+    @keyframes ad-appearing {
+        0%  {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    &__ad-con {
+        height: 50px;
+        background-color: v.$black;
+        position: relative;
+
+        @include t.center-flex();
+    }
+
+    &__ad {
+        gap: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: v.$white;
+        position: absolute;
+        animation: ad-appearing 3s forwards;
+
+        @include t.center-flex(row);
+    }
+
+    &__main {
+        width: 100%;
+        gap: 10px;
+        padding: 10px 50px;
+        box-sizing: border-box;
+        background-color: v.$white;
+        @include t.flex-box();
+    }
+
+    &__upper-menu {
+        gap: 20px;
+        font-family: v.$site_font;
+        
+        @include t.flex-end-center-flex(row);
+    }
+
+    &__upper-link {
+        color: v.$black;
+        font-size: 14px;
+        font-family: v.$site_font;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__change-lng-btn {
+        width: 35px;
+        height: 20px;
+        border: 1px solid v.$black;
+        
+        div {
+            height: floor(100% / 3);
+        }
+
+        div:nth-child(1) {
+            background-color: v.$black;
+        }
+
+        div:nth-child(2) {
+            background-color: v.$red;
+        }
+
+        div:nth-child(3) {
+            background-color: v.$yellow;
+        }
+    }
+
+    &__lower-menu {
+        height: 50px;
+
+        @include t.flex-box(row);
+    }
+
+    
+    &__links-con {
+        width: floor(100% / 3);
+        height: 100%;
+        gap: 30px;
+
+        @include t.center-flex(row);
+    }
+
+    &__link {
+        font-size: 18px;
+        font-weight: 700;
+        color: v.$black;
+        text-decoration: none;
+        margin: auto 0px;
+    }
+
+    &__logo-wrapper {
+        width: floor(100% / 3);
+
+        svg {
+            height: 70px;
+            position: relative;
+            bottom: 20px;
+        }
+    }
+
+    &__inter-con {
+        gap: 15px;
+        width: floor(100% / 3);
+
+        @include t.flex-end-center-flex(row);
+    }
+
+    &__inter-btn {
+        width: 32px;
+        height: 32px;
+
+        @include t.center-flex();
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
+    &__search-con {
+        width: 200px;
+        border: none;
+        background-color: v.$light-blue;
+        border-radius: 3px;
+        padding-right: 10px;
+        box-sizing: border-box;
+
+        @include t.flex-box(row);
+    }
+
+    &__search-field {
+        width: 100%;
+        height: 32px;
+        background: none;
+        border: none;
+        padding: 8px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-family: v.$site_font;
+        font-weight: 400;
+
+        &:focus {
+            outline: 1px solid v.$black;
+            border-radius: 3px;
+        }
+
+        &::placeholder {
+            color: v.$black;
+        }
+    }
+
+    &__search-btn {
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        right: 10px;
+    }
+}

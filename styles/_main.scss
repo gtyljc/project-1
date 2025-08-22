@@ -1,0 +1,298 @@
+@use "_variables.scss" as v;
+@use "_tools.scss" as t;
+
+@mixin title-with-bck {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px;
+    background-color: v.$white;
+    
+    @include t.center-flex();
+}
+
+@mixin text-with-bck {
+    background-color: v.$white;
+    padding: 10px;
+    font-size: 16px;
+    
+    @include t.center-flex();
+}
+
+@mixin shop-now-btn {
+    width: 140px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: v.$white;
+    text-decoration: none;
+    color: v.$black;
+    gap: 10px;
+    position: relative;
+
+    @include t.center-flex(row);
+
+    img {
+        width: 25px;
+    }
+
+    &::after {
+        content: "";
+        width: 140px;
+        height: 60px;
+        border: 1px solid v.$white;
+        position: absolute;
+        z-index: 0;
+        right: -7px;
+        bottom: -7px;
+    }
+}
+
+@mixin section-title {
+    width: 100%;
+    font-size: 40px;
+    padding: 30px 60px 20px 80px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+@mixin cards-con {
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+
+    @include t.center-flex(row);
+}
+
+@mixin card {
+    width: 470px;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+
+    @include t.flex-start-flex-end-flex(row);
+
+    &:hover {
+        outline: 1px solid v.$black;
+    }
+
+    &:hover::after {
+        content: "";
+        display: block;
+        border: 1px solid v.$white;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@mixin card-label {
+    font-weight: 600;
+
+    @include text-with-bck();
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    max-width: 2500px;
+    margin-top: 150px;
+}
+
+
+.f_s {
+    width: 100%;
+    height: 850px;
+    position: relative;
+
+    @include t.flex-box(column);
+
+    &__shop-terms-adapter {
+        height: 50px;
+        font-size: 14px;
+        font-family: v.$site_font;
+        background-color: v.$light-blue;
+        font-size: 15px;
+        letter-spacing: 1px;
+
+        @include t.center-flex(row);
+    }
+
+    &__shop-terms-link {
+        height: 100%;
+        position: absolute;
+        right: 30px;
+
+        @include t.center-flex(row);
+
+        img {
+            width: 35px;
+        }
+    }
+
+    &__picture-holder {
+        height: 800px;
+        background-image: url("../images/f_s/back.avif");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 80px 150px;
+        box-sizing: border-box;
+        
+        @include t.flex-start-flex-end-flex(row);
+    }
+
+    &__content {
+        @include t.flex-box(column);
+    }
+
+    &__title {
+        max-width: 290px;
+        
+        @include title-with-bck();
+    }
+
+    &__text {
+        max-width: 280px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        
+        @include text-with-bck();
+    }
+
+    &__btn {
+        @include shop-now-btn();
+    }
+}
+
+.s_s {
+
+    @include t.center-flex();
+
+    &__title {
+        @include section-title();
+    }
+
+    &__cards-con {
+        @include cards-con();
+    }
+
+    &__card {
+        @include card();
+    }
+
+    &__card:nth-child(1) {
+        background-image: url("../images/s_s/card-1.avif");
+    }
+
+    &__card:nth-child(2) {
+        background-image: url("../images/s_s/card-2.avif");
+    }
+
+    &__card:nth-child(3) {
+        background-image: url("../images/s_s/card-3.avif");
+    }
+
+    &__card:nth-child(4) {
+        background-image: url("../images/s_s/card-4.avif");
+    }
+
+    &__card-label {
+        @include card-label();
+    }
+}
+
+.t_s {
+    width: 100%;
+    margin-top: 60px;
+    position: relative;
+
+    &__content-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        @include t.flex-box(column);
+    }
+
+    &__player-con {
+        padding: 50px 80px;
+        
+        @include t.flex-start-flex-end-flex(column);
+    }
+
+    &__player-btn {
+        $size: 45px;
+
+        width: $size;
+        height: $size;
+        transition: all 0.35s ease-in;
+
+        @include t.center-flex();
+        
+        &:hover {
+            background-color: v.$light-blue;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        padding: 70px 200px;
+        box-sizing: border-box;
+
+        @include t.flex-start-flex-end-flex(row);
+        
+    }
+
+    &__back {
+        width: 100%;
+        z-index: -1;
+    }
+
+    &__title {
+        max-width: 50px;
+
+        @include title-with-bck();
+    }
+
+    &__text {
+        max-width: 180px;
+        margin-top: 10px;
+
+        @include text-with-bck();
+    }
+
+    &__btn {
+        margin-top: 30px;
+
+        @include shop-now-btn();
+    }
+}
+
+.fi_s {
+    &__title {
+        @include section-title();
+    }
+    
+    &__cards-con {
+        @include cards-con();
+    }
+
+    &__card {
+        @include card();
+    }
+
+    &__card-label {
+        @include card-label();
+    }
+}

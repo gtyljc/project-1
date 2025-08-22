@@ -1,0 +1,35 @@
+
+@mixin flex-box($direction: column) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+// first part means justify-content seconds part means align-items
+
+@mixin center-flex($direction: column) {
+    justify-content: center;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin space-between-center-flex($direction: column) {
+    justify-content: space-between;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin flex-end-center-flex($direction: column){
+    justify-content: flex-end;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin flex-start-flex-end-flex($direction: column){
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    @include flex-box($direction);
+}
